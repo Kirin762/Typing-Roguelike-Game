@@ -11,7 +11,7 @@ public class Player : SingletonMonobehaviour<PlayerController>
 
 public class PlayerController : AllCharacterController
 {
-    private bool disableInput = false;
+    public bool disableInput = false;
     private float inputX;
     private float inputY;
 
@@ -21,9 +21,6 @@ public class PlayerController : AllCharacterController
 
     [SerializeField] private GameObject playerTypingField;
     private readonly int maxCharLength = 12;
-
-    [Header("Menu")]
-    public MenuController menu;
 
     public override void Start()
     {
@@ -35,10 +32,7 @@ public class PlayerController : AllCharacterController
     {
         base.Update();
         TypeWord();
-        if(Input.GetKey(KeyCode.Escape))
-        {
-            menu.OnPause();
-        }
+        MenuHandler();
     }
 
     #region Base
@@ -118,6 +112,14 @@ public class PlayerController : AllCharacterController
 
     #endregion
 
+    public void MenuHandler()
+    {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            MenuController.Instance.OnPause();
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == (int)LayerMask.Enemy)                                         // Check if collide with enemy
@@ -134,10 +136,9 @@ public class PlayerController : AllCharacterController
 
     private IEnumerator GameOVer()
     {
-        disableInput = true;
-        inputX = 0;
-        inputY = 0;
+        //inputX = 0;
+        //inputY = 0;
         yield return new WaitForSeconds(1);
-        menu.OnDeath();
+        MenuController.Instance.OnDeath();
     }
 }

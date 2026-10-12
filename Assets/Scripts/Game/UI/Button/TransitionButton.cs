@@ -9,13 +9,13 @@ public enum Scene
     SettingScene = 2
 }
 
-public class TransitionButton : MonoBehaviour, IButton
+public class TransitionButton<T> : MonoBehaviour, IButton where T : MonoBehaviour, IButton
 {
     public Scene scene;
 
     public TransitionButton(Scene scene) { this.scene = scene; }
 
-    public void OnClick()
+    public virtual void OnClick()
     {
         SceneManager.LoadScene((int)scene);
     }

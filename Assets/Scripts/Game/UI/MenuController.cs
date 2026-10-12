@@ -2,18 +2,54 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MenuController : MonoBehaviour
+public class MenuController : SingletonMonobehaviour<MenuController>
 {
+    private void Awake()
+    {
+        foreach(Transform child in transform)
+        {
+            child.gameObject.SetActive(false);
+        }
+    }
+
     public void OnPause()
     {
         Time.timeScale = 0f;
-        this.gameObject.SetActive(true);
+        Player.Instance.disableInput = true;
+        foreach (Transform child in transform)
+        {
+            child.gameObject.SetActive(true);
+        }
         this.transform.GetChild(0).gameObject.SetActive(false);
+    }
+
+    public void OnContinue()
+    {
+        Time.timeScale = 1f;
+        Player.Instance.disableInput = false;
+        foreach (Transform child in transform)
+        {
+            child.gameObject.SetActive(false);
+        }
+    }
+
+    public void OnRestart()
+    {
+        Time.timeScale = 1f;
+        Player.Instance.disableInput = false;
+        foreach (Transform child in transform)
+        {
+            child.gameObject.SetActive(false);
+        }
     }
 
     public void OnDeath()
     {
-        this.gameObject.SetActive(true);
+        Player.Instance.disableInput = true;
+        foreach (Transform child in transform)
+        {
+            child.gameObject.SetActive(true);
+        }
         transform.GetChild(1).gameObject.SetActive(false);
     }
 }
