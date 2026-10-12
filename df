@@ -1,0 +1,152 @@
+[33mcommit 13ba2092e357a99ba2774f1afcb7a419de18f76c[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdev[m[33m, [m[1;31morigin/dev[m[33m)[m
+Author: Tan <tanhehu@gmail.com>
+Date:   Thu Sep 17 16:51:47 2026 +1000
+
+    Fix enemies no hit box issues, spawned enemy variants
+
+[33mcommit 9fa60f8cb0af84de83cfaec66568cd5256a90ddb[m
+Author: Tan <tanhehu@gmail.com>
+Date:   Mon Sep 14 14:51:58 2026 +1000
+
+    Minor scripts modification & comments
+
+[33mcommit 141251e13a59ff56cf491fef05c9f41a5ea4ff92[m
+Author: tanhehu <tanhehu@gmail.com>
+Date:   Mon Sep 14 08:42:12 2026 +1000
+
+    Added Demon & Blood Monster Enemies
+
+[33mcommit caee4cca6f894bddd9a682bf08a8095264b3ed93[m
+Author: tanhehu <tanhehu@gmail.com>
+Date:   Sat Sep 12 21:48:29 2026 +1000
+
+    Added Time Slow Buff, Trim First/Last Two Letters Buff. Added more enemies sprite & anim
+
+[33mcommit f6a1e5c5c8a16648fb346773a098aea9ca92e0b8[m
+Author: Tan <tanhehu@gmail.com>
+Date:   Mon Sep 7 17:05:02 2026 +1000
+
+    Case Remove Buff Compeleted
+
+[33mcommit 90cf6256e87f128e8cfaf1b329a93c1b4f9ebc1f[m
+Author: tanhehu <tanhehu@gmail.com>
+Date:   Mon Sep 7 08:51:25 2026 +1000
+
+    Modified Case Remove Buff & Word List Controller
+
+[33mcommit 28060d7887ab0cd1b538da75a824d447e774231c[m
+Merge: 69f7fca ef556ff
+Author: tanhehu <tanhehu@gmail.com>
+Date:   Thu Sep 3 21:56:12 2026 +1000
+
+    Home PC Solving Conflict
+
+[33mcommit 69f7fca19f53a7ebdf7e3626912364cee8a96fba[m
+Author: tanhehu <tanhehu@gmail.com>
+Date:   Thu Sep 3 21:55:00 2026 +1000
+
+    Home PC Fixing Conflict
+
+[33mcommit ef556ff625e9715aef00d8cd83c4a9e484483c47[m
+Author: Tan <tanhehu@gmail.com>
+Date:   Thu Sep 3 16:55:43 2026 +1000
+
+    Added Case Remove Buff
+
+[33mcommit 896b7f55769bbfc2deafac4b96bf2d57c5fa1f41[m
+Author: Tan <tanhehu@gmail.com>
+Date:   Thu Sep 3 13:43:56 2026 +1000
+
+    Fixed Conflict
+
+[33mcommit 7e06eace4b19271922f21a95bafae79e6c6f316b[m
+Merge: 2f7f105 c6a0af5
+Author: Tan <tanhehu@gmail.com>
+Date:   Thu Sep 3 13:22:45 2026 +1000
+
+    Solving Conflict Enemy Script
+
+[33mcommit 2f7f105468d154385a26a91834c470603925f923[m
+Author: Tan <tanhehu@gmail.com>
+Date:   Thu Sep 3 13:20:30 2026 +1000
+
+    Added Powerup Related Scripts & Simple Health Buff
+
+[33mcommit c6a0af5bb65983fa746adc657aa24f7ccdbd5395[m
+Merge: cd86d96 fefa397
+Author: tanhehu <tanhehu@gmail.com>
+Date:   Wed Sep 2 22:49:09 2026 +1000
+
+    Commit
+
+[33mcommit cd86d9667104f219ec08ee48582af7889a9a807c[m
+Author: tanhehu <tanhehu@gmail.com>
+Date:   Wed Sep 2 21:48:34 2026 +1000
+
+    Modified Character Scripts and Word Scripts
+
+[33mcommit fefa3974b6001809cf68855b6b0fa0f2d4037efe[m
+Author: Tan <tanhehu@gmail.com>
+Date:   Thu Aug 27 16:41:30 2026 +1000
+
+    Added Fantasy UI Pack, Left Comment For Tasks To Do
+
+[33mcommit c10980489a8443e3f70c2fe05042ca8ef5a6a4e3[m
+Author: Tan <tanhehu@gmail.com>
+Date:   Thu Aug 27 13:01:53 2026 +1000
+
+    Finished Enemies Spawner, Refactored Word Spawn
+
+[33mcommit 27f1a073efd00edea274616ae1d87b02de6f93ba[m[33m ([m[1;31morigin/dev_branch[m[33m)[m
+Author: Tan <tanhehu@gmail.com>
+Date:   Mon Aug 24 17:03:18 2026 +1000
+
+    Stage 1 making main mechanics
+
+[33mcommit d6e939835aeb385a580f5c1934833976e97d25d9[m
+Author: Tan <tanhehu@gmail.com>
+Date:   Mon Aug 24 13:24:39 2026 +1000
+
+    Commit
+
+[33mcommit 4aecb100ee3728c1b726dafd727c540ccf6665d2[m
+Author: tanhehu <tanhehu@gmail.com>
+Date:   Mon Aug 24 08:23:13 2026 +1000
+
+    Enemy Word Generation Completed, Working On Player Typing Mechanics
+
+[33mcommit 28b5b124968a6774b7c28c93b36df6fb96397bf8[m
+Author: Tan <tanhehu@gmail.com>
+Date:   Thu Aug 20 16:47:25 2026 +1000
+
+    Iteration 1 of making core mechanics
+
+[33mcommit a8e8a167766e546013e9d9460b3a5666f235da82[m
+Author: Tan <tanhehu@gmail.com>
+Date:   Thu Aug 20 14:22:17 2026 +1000
+
+    Create empty object
+
+[33mcommit 1eeed3a7a09dabd3bb064953f83f1311ad407588[m
+Author: Tan <tanhehu@gmail.com>
+Date:   Thu Aug 20 14:17:56 2026 +1000
+
+    Making Character Controller Generic
+
+[33mcommit b83d57420a7ba67e93cfa85bf1fb21542073dbcd[m
+Author: Hoang Trong Tan Nguyen <a260060@students.aieinstitute.edu.au>
+Date:   Thu Aug 13 17:01:12 2026 +1000
+
+    Enemy Added
+
+[33mcommit 0af259b4782fef4abf7223ae27002a0f7a9ed68e[m
+Author: Hoang Trong Tan Nguyen <a260060@students.aieinstitute.edu.au>
+Date:   Thu Aug 13 16:46:07 2026 +1000
+
+    Project added with basic character controls
+
+[33mcommit afe34a7c9cee0e31e65f0ceddde43f6cd93163dd[m
+Author: Tan <tanhehu@gmail.com>
+Date:   Thu Aug 13 16:36:14 2026 +1000
+
+    Initial commit
