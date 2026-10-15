@@ -39,6 +39,7 @@ public class PlayerController : AllCharacterController
 
     public override void Move()
     {
+        transform.rotation = Quaternion.identity;
         if(!disableInput)
         {
             inputX = Input.GetAxis("Horizontal");
