@@ -58,13 +58,17 @@ public class EnemyController : AllCharacterController
 
     public override void Animation()
     {
-        isWalking = distance.magnitude > range && !isAttacking;
+        isWalking = distance.magnitude > range && !isAttacking && speed != 0;
         base.Animation();
     }
 
-    public virtual void OnDeath()
+    public override void OnDeath()
     {
-        isDying = true;
+        TutorialController tutorial = TutorialController.Instance;
+        if(tutorial != null)
+        {
+            tutorial.killCount++;
+        }
         StartCoroutine(OnDeathCoroutine());
     }
 
@@ -97,5 +101,15 @@ public class EnemyController : AllCharacterController
     public void OnDrawGizmos()
     {
         DrawRange();
+    }
+
+    public void SetSpeed(EnemyController enemy, float speed)
+    {
+        enemy.speed = speed;
+    }
+
+    public void SetPowerupChance(EnemyController enemy, float chance)
+    {
+        enemy.spawnPowerupChance = chance;
     }
 }
