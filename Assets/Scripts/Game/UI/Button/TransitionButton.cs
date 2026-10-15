@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 
 public enum Scene
 {
-    GameScene = 1,
-    SettingScene = 2
+    TutorialScene = 1,
+    GameScene = 2,
+    SettingScene = 3
 }
 
 public class TransitionButton<T> : MonoBehaviour, IButton where T : MonoBehaviour, IButton

@@ -45,10 +45,7 @@ public abstract class AllCharacterController : MoveController
         isFacingRight = !isFacingRight;
     }
 
-    public virtual void Attack()
-    {
-        //isAttacking = true;
-    }
+    public virtual void Attack() { }
 
     public virtual void Animation()
     {
@@ -56,8 +53,9 @@ public abstract class AllCharacterController : MoveController
         animator.SetBool("Idle", isIdle);
         animator.SetBool("Walk", isWalking);
         animator.SetBool("Attack", isAttacking);
-        //animator.SetBool("Death", isDying);
     }
+
+    public virtual void OnDeath() { }
 
     #endregion
 

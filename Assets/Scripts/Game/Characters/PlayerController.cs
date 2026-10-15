@@ -67,8 +67,16 @@ public class PlayerController : AllCharacterController
     public override void Animation()
     {
         isWalking = inputX * inputX + inputY * inputY >= 0.25f;                                         // Walk if input is greater than a certain threshold
-        this.isDying = health <= 0;
         base.Animation();
+    }
+
+    public override void OnDeath()
+    {
+        disableInput = true;
+        inputX = 0;
+        inputY = 0;
+        animator.Play("PlayerDeath");
+        StartCoroutine(MenuInvokeOnDeath());
     }
 
     #endregion
@@ -76,6 +84,8 @@ public class PlayerController : AllCharacterController
     #region Typing Mechanics
     public void TypeWord()
     {
+        if (disableInput) return;
+
         foreach(var c in Input.inputString)
         {
             string str = word.text.text;
@@ -128,16 +138,13 @@ public class PlayerController : AllCharacterController
             healthImage.fillAmount = health / 100f;
             if (health <= 0)
             {
-                animator.Play("PlayerDeath");
-                StartCoroutine(GameOVer());
+                OnDeath();
             }
         }
     }
 
-    private IEnumerator GameOVer()
+    private IEnumerator MenuInvokeOnDeath()
     {
-        //inputX = 0;
-        //inputY = 0;
         yield return new WaitForSeconds(1);
         MenuController.Instance.OnDeath();
     }
