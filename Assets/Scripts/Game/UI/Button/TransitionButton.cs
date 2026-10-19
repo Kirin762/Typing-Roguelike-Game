@@ -5,12 +5,13 @@ using UnityEngine.SceneManagement;
 
 public enum Scene
 {
+    MenuScene = 0,
     TutorialScene = 1,
     GameScene = 2,
     SettingScene = 3
 }
 
-public class TransitionButton<T> : MonoBehaviour, IButton where T : MonoBehaviour, IButton
+public class TransitionButton : MonoBehaviour, IButton
 {
     public Scene scene;
 
@@ -18,6 +19,7 @@ public class TransitionButton<T> : MonoBehaviour, IButton where T : MonoBehaviou
 
     public virtual void OnClick()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene((int)scene);
     }
 }
