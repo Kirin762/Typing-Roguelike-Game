@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class AllCharacterBase : MoveController
+public abstract class AllCharacterBase : MoveController, IDamageable, IDeath, IWordHolder
 {
     public bool isIdle = true;
     public bool isWalking = false;
@@ -13,10 +13,12 @@ public abstract class AllCharacterBase : MoveController
     [Header("References")]
     [SerializeField] protected Animator animator;
     [SerializeField] private WordController wordPrefab;
-    protected WordController word;
-    public Vector3 wordOffset;
 
-    public delegate void Death();                                                           
+    public WordController word { get; set; }
+    public Vector3 wordOffset { get; set; }
+
+
+    public delegate void Death();
     public Death deathDelegate;                                                 // Death event trigger
 
     public virtual void Start()
@@ -55,14 +57,23 @@ public abstract class AllCharacterBase : MoveController
         animator.SetBool("Attack", isAttacking);
     }
 
-    public virtual void OnDeath() { }
+    #endregion
 
+    #region IDamageable
+    public virtual void OnHit() { }
+
+    public virtual void OnDeath() { }
     #endregion
 
     public virtual void SpawnWord()
     {
         word = CreateController.Instance.Create<WordController>(wordPrefab);        
         word.transform.SetParent(WordList.Instance.wordCanvas.transform, false);        // Set word to a separate canvas (word canvas) so the word can appear on game screen
+    }
+
+    void IWordHolder.SpawnWord()
+    {
+        throw new System.NotImplementedException();
     }
 }
 

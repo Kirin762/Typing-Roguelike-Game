@@ -71,6 +71,9 @@ public class PlayerController : AllCharacterBase
         base.Animation();
     }
 
+    #endregion
+
+    #region IDamageable
     public override void OnDeath()
     {
         disableInput = true;

@@ -62,13 +62,17 @@ public class EnemyBase : AllCharacterBase
         base.Animation();
     }
 
+    #endregion
+
+    #region IDamageable
     public override void OnDeath()
     {
         TutorialController tutorial = TutorialController.Instance;
-        if(tutorial != null)
+        if (tutorial != null)
         {
             tutorial.killCount++;
         }
+        deathDelegate?.Invoke();
         StartCoroutine(OnDeathCoroutine());
     }
 
