@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BloodMonsterController : EnemyController
+public class BloodMonsterController : EnemyBase
 {
     public override void OnDeath()
     {

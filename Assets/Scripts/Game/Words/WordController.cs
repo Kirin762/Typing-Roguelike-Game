@@ -7,7 +7,7 @@ public class WordController : MonoBehaviour
 {
     public Image image;
     public Text text;
-    public AllCharacterController character;
+    public AllCharacterBase character;
 
     private void Start()
     {

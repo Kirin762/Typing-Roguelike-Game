@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DemonController : EnemyController
+public class DemonController : EnemyBase
 {
     public override void OnDeath()
     {

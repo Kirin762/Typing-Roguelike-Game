@@ -21,7 +21,7 @@ public enum Buff
 
 public class WordListController : MonoBehaviour
 {
-    public Dictionary<string, List<EnemyController>> wordDictionary = new Dictionary<string, List<EnemyController>>();
+    public Dictionary<string, List<EnemyBase>> wordDictionary = new Dictionary<string, List<EnemyBase>>();
     public List<string> wordList = new List<string>();
 
     public Canvas wordCanvas;
@@ -33,7 +33,7 @@ public class WordListController : MonoBehaviour
     {
         foreach (var word in wordList)
         {
-            wordDictionary.Add(word, new List<EnemyController>());
+            wordDictionary.Add(word, new List<EnemyBase>());
         }
     }
 
@@ -47,7 +47,7 @@ public class WordListController : MonoBehaviour
         }
     }
 
-    public string RandomizeWord(EnemyController enemy)                       // Existing problem: when two enemies of same word appears, the word check only kills one
+    public string RandomizeWord(EnemyBase enemy)                       // Existing problem: when two enemies of same word appears, the word check only kills one
     {                                                                        // Solution: use list of enemies for a word
         bool checkNull = false;
         int checkTime = 0;

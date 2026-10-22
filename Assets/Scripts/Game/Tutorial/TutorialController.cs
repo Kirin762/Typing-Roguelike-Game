@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TutorialController : SingletonMonobehaviour<TutorialController>
 {
-    public EnemyController enemyPrb;
+    public EnemyBase enemyPrb;
 
     [Header("Spawn Positions")]
     public Transform spawnPos1;
@@ -55,7 +55,7 @@ public class TutorialController : SingletonMonobehaviour<TutorialController>
             count += Time.deltaTime;
             if(count >= spawnRate)
             {
-                EnemyController e = SpawnEnemy(spawnPos1);
+                EnemyBase e = SpawnEnemy(spawnPos1);
                 SpawnEnemy(spawnPos2);
                 e.SetPowerupChance(e, 100);
                 count = 0;
@@ -69,15 +69,15 @@ public class TutorialController : SingletonMonobehaviour<TutorialController>
         spawnPos2.transform.position += new Vector3(10, 0, 0);
     }
 
-    public EnemyController SpawnEnemy(Transform pos)
+    public EnemyBase SpawnEnemy(Transform pos)
     {
-        EnemyController enemy = CreateController.Instance.Create<EnemyController>(enemyPrb);
+        EnemyBase enemy = CreateController.Instance.Create<EnemyBase>(enemyPrb);
         enemy.SetPowerupChance(enemy, 0);
         enemy.transform.position = pos.transform.position;
         return enemy;
     }
 
-    private IEnumerator SetEnemySpeed(EnemyController enemy)
+    private IEnumerator SetEnemySpeed(EnemyBase enemy)
     {
         yield return new WaitForEndOfFrame();
         enemy.SetSpeed(enemy, 0);
@@ -89,7 +89,7 @@ public class TutorialController : SingletonMonobehaviour<TutorialController>
         {
             yield return null;
         }
-        EnemyController e1 = SpawnEnemy(spawnPos1);
+        EnemyBase e1 = SpawnEnemy(spawnPos1);
         SpawnEnemy(spawnPos2);
         if(trigger == trigger2)
         {

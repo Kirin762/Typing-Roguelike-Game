@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 
-public class EnemyController : AllCharacterController
+public class EnemyBase : AllCharacterBase
 {
     [SerializeField] private float range;
     public float damage;
@@ -103,12 +103,12 @@ public class EnemyController : AllCharacterController
         DrawRange();
     }
 
-    public void SetSpeed(EnemyController enemy, float speed)
+    public void SetSpeed(EnemyBase enemy, float speed)
     {
         enemy.speed = speed;
     }
 
-    public void SetPowerupChance(EnemyController enemy, float chance)
+    public void SetPowerupChance(EnemyBase enemy, float chance)
     {
         enemy.spawnPowerupChance = chance;
     }

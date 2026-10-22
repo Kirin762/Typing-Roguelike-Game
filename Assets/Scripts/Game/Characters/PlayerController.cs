@@ -9,7 +9,7 @@ public class Player : SingletonMonobehaviour<PlayerController>
 
 }
 
-public class PlayerController : AllCharacterController
+public class PlayerController : AllCharacterBase
 {
     public bool disableInput = false;
     private float inputX;
@@ -135,7 +135,7 @@ public class PlayerController : AllCharacterController
     {
         if (collision.gameObject.layer == (int)LayerMask.Enemy)                                         // Check if collide with enemy
         {
-            health -= collision.gameObject.GetComponent<EnemyController>().damage;                      // Retrieve enemy damage
+            health -= collision.gameObject.GetComponent<EnemyBase>().damage;                      // Retrieve enemy damage
             healthImage.fillAmount = health / 100f;
             if (health <= 0)
             {
