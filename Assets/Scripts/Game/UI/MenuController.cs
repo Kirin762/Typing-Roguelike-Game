@@ -35,7 +35,6 @@ public class MenuController : SingletonMonobehaviour<MenuController>
 
     public void OnRestart()
     {
-        Time.timeScale = 1f;
         Player.Instance.disableInput = false;
         foreach (Transform child in transform)
         {

@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class PlayButton : TransitionButton<PlayButton>
+public class PlayButton : TransitionButton
 {
     public PlayButton(Scene scene) : base(scene) { }
 
