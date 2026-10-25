@@ -4,31 +4,21 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 
-public class EnemyBase : AllCharacterBase
+public class EnemyBase : AllCharacterBase, IDropPowerup
 {
+    [Header("Combat")]
     [SerializeField] private float range;
     public float damage;
-    public float spawnPowerupChance;
-    private float spawnPowerupNumber;
+
+    public int dropChance { get; set; }
+    public bool drop { get; set; }
 
     private Vector3 playerPos => Player.Instance.transform.position;
     private Vector3 distance => playerPos - transform.position;
 
-    private void OnEnable()
-    {
-        deathDelegate += OnDeath;                                                   // Add enemy death logic
-    }
-
-    private void OnDisable()
-    {
-        deathDelegate -= OnDeath;                                                   // Remove enemy death logic
-    }
-
     public override void Start()
     {
         base.Start();
-        spawnPowerupNumber = UnityEngine.Random.Range(1, 100);                      // Randomize powerup spawn chance
-        word.character = this;
         this.speed = UnityEngine.Random.Range(0.1f, 0.4f);                          // Vary enemies speed
     }
 
@@ -64,7 +54,10 @@ public class EnemyBase : AllCharacterBase
 
     #endregion
 
-    #region IDamageable
+    #region Interfaces
+
+    public override void OnHit(float damage = 0) { destroy?.Invoke(); }
+
     public override void OnDeath()
     {
         TutorialController tutorial = TutorialController.Instance;
@@ -72,7 +65,6 @@ public class EnemyBase : AllCharacterBase
         {
             tutorial.killCount++;
         }
-        deathDelegate?.Invoke();
         StartCoroutine(OnDeathCoroutine());
     }
 
@@ -82,7 +74,7 @@ public class EnemyBase : AllCharacterBase
     {
         yield return new WaitForSeconds(1);
         PowerupController powerup;
-        if (spawnPowerupNumber <= spawnPowerupChance)
+        if (drop)
         {
             powerup = PowerupListController.Instance.SpawnPowerup();                            // Spawn powerup
             powerup.transform.position = this.transform.position;                               // Set powerup position to enemy death position
@@ -112,8 +104,8 @@ public class EnemyBase : AllCharacterBase
         enemy.speed = speed;
     }
 
-    public void SetPowerupChance(EnemyBase enemy, float chance)
+    public void SetPowerupChance(EnemyBase enemy, int chance)
     {
-        enemy.spawnPowerupChance = chance;
+        enemy.dropChance = chance;
     }
 }
