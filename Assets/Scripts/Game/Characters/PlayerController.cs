@@ -58,7 +58,6 @@ public class PlayerController : AllCharacterBase
             }
 
             if (Input.GetKeyDown(KeyCode.Space)) { goX = false; goY = false; stop = true; }
-            Debug.Log($"GoX: {goX}, GoY: {goY}");
 
             if (goX) inputX = 1 * signX;
             if (goY) inputY = 1 * signY;
